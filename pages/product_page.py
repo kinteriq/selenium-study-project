@@ -3,29 +3,20 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def get_messages(self):
-        return self.browser.find_element(*ProductPageLocators.MESSAGES).text
+    def get_message(self, *args):
+        self.browser.implicitly_wait(10)
+        return self.browser.find_element(*args).text
 
     def add_to_basket_click(self):
         link = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BTN)
         link.click()
     
-    def added_to_basket_message_present(self):
-        added_message = "has been added to your basket."
-        assert added_message in self.get_messages(),\
-            "No book is added message"
-    
     def correct_added_to_busket_book(self):
         title = self.browser.find_element(*ProductPageLocators.TITLE).text
-        assert title in self.get_messages(),\
+        assert title == self.get_message(*ProductPageLocators.ADDED_TITLE),\
             "The title of added to basket book is incorrect"
-        
-    def total_price_message_present(self):
-        total_price_message = "Your basket total is"
-        assert total_price_message in self.get_messages(),\
-            "No total price message"
 
     def correct_added_to_busket_price(self):
         price = self.browser.find_element(*ProductPageLocators.PRICE).text
-        assert price in self.get_messages(),\
+        assert price == self.get_message(*ProductPageLocators.TOTAL_PRICE),\
             "The price of added to basket book is incorrect"

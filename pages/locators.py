@@ -1,10 +1,11 @@
+"""
+    BasePage.is_element_present(how, what)
+"""
+
 from selenium.webdriver.common.by import By
 
 
 class MainPageLocators:
-    """
-    BasePage.is_element_present(how, what)
-    """
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 
@@ -18,4 +19,7 @@ class ProductPageLocators:
         button[class$='btn btn-lg btn-primary btn-add-to-basket']")
     TITLE = (By.CSS_SELECTOR, "div[class$='product_main'] h1")
     PRICE = (By.CSS_SELECTOR, "div[class$='product_main'] p[class='price_color']")
-    MESSAGES = (By.CSS_SELECTOR, "div[id='messages'],div[class='alertinner']")
+    ADDED_TITLE = (By.CSS_SELECTOR,
+        "div[class='alert alert-safe alert-noicon alert-success  fade in'] strong")
+    TOTAL_PRICE = (By.CSS_SELECTOR,
+        "div[class='alert alert-safe alert-noicon alert-info  fade in'] strong")
