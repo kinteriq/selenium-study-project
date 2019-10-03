@@ -23,3 +23,4 @@ class ProductPageLocators:
         "div[class='alert alert-safe alert-noicon alert-success  fade in'] strong")
     TOTAL_PRICE = (By.CSS_SELECTOR,
         "div[class='alert alert-safe alert-noicon alert-info  fade in'] strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div[id='messages'] div[class='alertinner ']")
