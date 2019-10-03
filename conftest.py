@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
+CUSTOM_CHROME = True
 PATH_TO_CHROME = r'/Users/kinteriq/drivers/chromedriver'
 
 
@@ -18,8 +19,11 @@ def browser(request):
     options.add_experimental_option('prefs', {
         'intl.accept_languages': lang
     })
-    browser = webdriver.Chrome(PATH_TO_CHROME, options=options)
-    print(f'Start browser: language={lang}.')
+    if CUSTOM_CHROME:
+        browser = webdriver.Chrome(PATH_TO_CHROME, options=options)
+    else:
+        browser = webdriver.Chrome(options=options)
+    print(f'\nStart browser: language={lang}.')
     yield browser
-    print(f'Quit browser; language={lang}.')
+    print(f'\nQuit browser; language={lang}.')
     browser.quit()
