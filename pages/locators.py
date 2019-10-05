@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.CSS_SELECTOR,
         "a[class='btn btn-default'][href$='basket/']")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
@@ -29,8 +28,6 @@ class ProductPageLocators:
         "form[id='add_to_basket_form'] button[class$='btn-add-to-basket']")
     TITLE = (By.CSS_SELECTOR, "div[class$='product_main'] h1")
     PRICE = (By.CSS_SELECTOR, "div[class$='product_main'] p[class='price_color']")
-    ADDED_TITLE = (By.CSS_SELECTOR,
-        "div[class='alert alert-safe alert-noicon alert-success  fade in'] strong")
-    TOTAL_PRICE = (By.CSS_SELECTOR,
-    "div[class='alert alert-safe alert-noicon alert-info  fade in'] strong")
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "div[id='messages'] div[class='alertinner ']")
+    ADDED_TITLE = (By.CSS_SELECTOR, "#messages .alert:nth-child(1) strong")
+    TOTAL_PRICE = (By.CSS_SELECTOR, "#messages .alert:nth-child(3) strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert:nth-child(1)")

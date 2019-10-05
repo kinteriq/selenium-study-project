@@ -52,26 +52,26 @@ class BasePage:
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON),\
-            "User icon is not presented, probably unauthorised user"
+            'User icon is not present, probably unauthorised user'
 
     def should_be_basket_link(self):
         assert self.is_element_present(*BasePageLocators.BASKET_LINK),\
-            "Basket link is not presented"
+            'Basket link is not present'
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK),\
-            "Login link is not presented"
+            'Login link is not present'
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
-        x = alert.text.split(" ")[2]
+        x = alert.text.split(' ')[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
-            print(f"Your code: {alert_text}")
+            print(f'Your code: {alert_text}')
             alert.accept()
         except NoAlertPresentException:
-            print("No second alert presented")
+            print('No second alert present')

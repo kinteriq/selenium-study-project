@@ -11,4 +11,4 @@ class BasketPage(BasePage):
     
     def basket_does_not_have_items(self):
         assert self.is_not_element_present(*BasketPageLocators.BASKET_CONTENT),\
-            'Basket is empty but should not be'
+            'Basket has some content'

@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-CUSTOM_CHROME = True
+CUSTOM_CHROME = False
 PATH_TO_CHROME = r'/Users/kinteriq/drivers/chromedriver'
 
 
