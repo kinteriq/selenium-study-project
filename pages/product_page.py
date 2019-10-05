@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, BasePageLocators
 
 
 class ProductPage(BasePage):
@@ -22,7 +22,8 @@ class ProductPage(BasePage):
             "The price of added to basket book is incorrect"
     
     def should_be_login_link(self):
-        pass
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK),\
+            "Login link is not presented"
 
     def success_message_should_dissapear(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
