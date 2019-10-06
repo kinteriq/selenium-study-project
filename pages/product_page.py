@@ -10,6 +10,7 @@ class ProductPage(BasePage):
         return self.browser.find_element(*ProductPageLocators.PRICE).text
 
     def _get_message(self, *args):
+        self.browser.implicitly_wait(10)
         return self.browser.find_element(*args).text
 
     def add_to_basket_click(self):
